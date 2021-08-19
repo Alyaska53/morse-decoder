@@ -41,13 +41,15 @@ function decode(expr) {
     const arr = [];
     
     for (let i = 0; i < expr.length; i += 2) {
+        let substring = expr.substr(i, 2);
+        
         if (i % 10 === 0) {
             arr.push(' ');
-        }
-
-        if (expr.substr(i, 2) === '10') {
+        }   
+        
+        if (substring === '10') {
             arr.push('.');
-        } else if (expr.substr(i, 2) === '11') {
+        } else if (substring === '11') {
             arr.push('-');
         }
     }
